@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import JobBoardABI from "../../jobBoard.json";
 import { hasEthereum, requestAccount } from "../../utils";
-
 import toast from "./Toast";
 
 export default function InputForm() {
