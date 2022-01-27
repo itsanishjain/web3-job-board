@@ -26,7 +26,7 @@ export default function Home() {
       const signer = provider.getSigner();
       try {
         const signerAddress = await signer.getAddress();
-        console.log("HEYYY,", signerAddress);
+        console.log("HEYYY", signerAddress);
         setConnectedWalletAddressState(signerAddress);
       } catch {
         setConnectedWalletAddressState("No wallet connected");

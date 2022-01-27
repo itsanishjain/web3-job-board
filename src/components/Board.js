@@ -33,14 +33,6 @@ export default function Board({
     else return "https://twitter.com/itsanishjain";
   }
 
-  //   const applyHit = (url) => {
-  //     let isValid = isValidHttpUrl(url);
-  //     console.log("Apply hit", url, isValid);
-  //     if(!isValid){
-  //         ''
-  //     }
-  //   };
-
   return (
     <div style={boardStyle}>
       <img className="logo" src="companyLogo.png" alt="logo"></img>
@@ -48,12 +40,9 @@ export default function Board({
         <span className="badge">{companyName}</span>
         <span>{position}</span>
         <div style={{ display: "flex", paddingRight: "10px" }}>
-          <p>{employmentType}</p> <p>{location}</p>
+          <p>{employmentType} - </p> <p> {location}</p>
         </div>
       </div>
-      {/* <span onClick={() => applyHit(companyWebsiteUrl)} className="primary-btn">
-        apply
-      </span> */}
       <a href={companyWebsiteUrl} className="primary-btn">
         Apply
       </a>
