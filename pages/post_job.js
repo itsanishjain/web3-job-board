@@ -5,7 +5,7 @@ export default function PostJob() {
   return (
     <div>
       {/* <h3>POST A JOB LET'S START</h3> // fucked up code */}
-      POST A JOB LET&apos;S START
+      <h3>POST A JOB LET&apos;S START</h3>
       <InputForm />
     </div>
   );
