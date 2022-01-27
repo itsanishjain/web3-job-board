@@ -97,7 +97,7 @@ export default function Home() {
 
       <div className="recipe">
         hey I am simple job board website build with smart contract AKA
-        blockchain and Nextjs so I don't Have any centerlized database. use me
+        blockchain and Nextjs so I don&apos;t Have any centerlized database. use me
         to post your jobs with just 0.005ETH = 15$
       </div>
 

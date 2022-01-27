@@ -7,7 +7,6 @@ import toast from "./Toast";
 
 export default function InputForm() {
   const [loading, setLoading] = useState(false);
-
   const notify = React.useCallback((type, message) => {
     toast({ type, message });
   }, []);
