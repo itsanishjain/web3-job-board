@@ -1,7 +1,10 @@
 {
   "name": "web3-job-board",
   "private": true,
-  "rules": { "react/no-unescaped-entities": 0 },
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,5 +22,4 @@
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8"
   }
-  
 }
