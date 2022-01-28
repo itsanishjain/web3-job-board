@@ -11,10 +11,10 @@ export default function NavigationBar() {
         <Link href="/post_job">
           <a className="site-header-categories-a">Post a job</a>
         </Link>
-        <Link href="/post_job">
+        <Link href="/about">
           <a className="site-header-categories-a">About</a>
         </Link>
-        <Link href="/post_job">
+        <Link href="https://twitter.com/itsanishjain">
           <a className="site-header-categories-a">Contact</a>
         </Link>
       </nav>

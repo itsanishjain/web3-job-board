@@ -1,48 +1,29 @@
 import React from "react";
 
 export default function Board({
+  id,
   companyName,
   position,
   employmentType,
   location,
   companyWebsiteUrl,
 }) {
-  const boardStyle = {
-    backgroundColor: "#c694ea",
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "30px",
-    fontWeight: 800,
-  };
   const info = {
     display: "flex",
     flexDirection: "column",
   };
 
-  // write a function that checks is link is valid or not
-  function isValidHttpUrl(string) {
-    let url;
-    try {
-      url = new URL(string);
-    } catch (_) {
-      //   return false;
-      console.log("ERROR");
-    }
-    let valid = url.protocol === "http:" || url.protocol === "https:";
-    if (valid) return url;
-    else return "https://twitter.com/itsanishjain";
-  }
-
   return (
-    <div style={boardStyle}>
-      <img className="logo" src="companyLogo.png" alt="logo"></img>
-      <div style={info}>
-        <span className="badge">{companyName}</span>
+    <div className="card">
+      <span className="card-rating">{id + 1}</span>
+      <div className="info">
+        <span>{companyName} - </span>
         <span>{position}</span>
-        <div style={{ display: "flex", paddingRight: "10px" }}>
-          <p>{employmentType} - </p> <p> {location}</p>
-        </div>
+        <p>
+          <span>{employmentType} - </span> <span> {location}</span>
+        </p>
       </div>
+
       <a href={companyWebsiteUrl} className="primary-btn">
         Apply
       </a>

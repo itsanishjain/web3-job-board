@@ -96,29 +96,35 @@ export default function Home() {
       </Head>
 
       <div className="recipe">
-        hey I am simple job board website build with smart contract AKA
-        blockchain and Nextjs so I don&apos;t Have any centerlized database. use me
-        to post your jobs with just 0.005ETH = 15$
+        hey, I am a simple job board website built with smart contract AKA
+        blockchain and Nextjs so I don&apos;t Have any centralized database. use
+        me to post your jobs with just 0.005ETH = 15$
+        <p className="error">Still running on Rinkeby Testnet</p>
       </div>
 
       {loading ? (
-        <div className="loader"></div>
+        <div className="loader-center">
+          <div className="loader"></div>
+        </div>
       ) : (
         allJobsState &&
-        allJobsState.map((job, index) => (
-          <div key={index}>
-            <Board
-              companyName={job.companyName}
-              position={job.position}
-              employmentType={job.employmentType}
-              location={job.location}
-              companyWebsiteUrl={job.companyWebsiteUrl}
-            />
-            <div style={{ marginTop: "15px" }}></div>
-          </div>
-        ))
+        allJobsState.map(
+          (job, index) =>
+            job.employer != "0x0000000000000000000000000000000000000000" && (
+              <div key={index}>
+                <Board
+                  id={index}
+                  companyName={job.companyName}
+                  position={job.position}
+                  employmentType={job.employmentType}
+                  location={job.location}
+                  companyWebsiteUrl={job.companyWebsiteUrl}
+                />
+                <div style={{ marginTop: "15px" }}></div>
+              </div>
+            )
+        )
       )}
-      {isAdmin ? "Welcom Admin" : null}
     </div>
   );
 }

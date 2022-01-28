@@ -36,8 +36,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 120px;
-  /* background-color: red; */
+  margin-bottom: 20px;
 }
 .navbar {
   max-width: 50%;
@@ -47,7 +46,6 @@ nav {
 /* media query */
 @media only screen and (max-width: 800px) {
   .navbar {
-    background-color: lightblue;
     max-width: 90%;
   }
 }
@@ -157,8 +155,8 @@ h3 {
   position: relative;
   text-align: center;
   padding: 0 20px 30px 20px;
-  margin:30px;
-  padding:20px
+  margin: 30px;
+  padding: 20px;
 }
 .recipe img {
   width: 100px;
@@ -244,6 +242,13 @@ a {
   animation: spin 2s linear infinite;
 }
 
+.loader-center {
+  max-width: 20%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -286,18 +291,8 @@ a {
 }
 
 .badge {
-  /* margin-top: 30px; */
-  /* border-radius: 36px; */
   color: #f1f1f1;
   background: #ff0099;
   border: 0;
-  padding:"10px"
-  /* text-transform: uppercase; */
-  /* font-weight: 700; */
-  /* font-size: 0.8em; */
-  /* display: block; */
-  
-  /* letter-spacing: 2px; */
-  /* cursor: pointer; */
+  padding: "10px";
 }
-
