@@ -84,7 +84,7 @@ export default function Home() {
       provider
     );
     try {
-      await requestAccount();
+      // await requestAccount();
       const data = await contract.allJobs();
       console.log("ALL JOBS", data);
       setAllJobsState(data);
