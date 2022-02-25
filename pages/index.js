@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import JobBoardABI from "../jobBoard.json";
-import { hasEthereum } from "../utils";
+import { hasEthereum, requestAccount } from "../utils";
 import Board from "../src/components/Board";
 import toast from "../src/components/Toast";
 
@@ -25,15 +25,17 @@ export default function Home() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       try {
+        await requestAccount();
         const signerAddress = await signer.getAddress();
         console.log("HEYYY", signerAddress);
         setConnectedWalletAddressState(signerAddress);
       } catch {
+        console.log("ERROR");
         setConnectedWalletAddressState("No wallet connected");
         return;
       }
     }
-    setConnectedWalletAddress();
+    // setConnectedWalletAddress();
     getAdmin();
     fetchAllJobs();
   }, []);
@@ -45,8 +47,10 @@ export default function Home() {
   async function getAdmin() {
     if (!hasEthereum()) {
       setConnectedWalletAddressState(`MetaMask unavailable`);
+      notify("error", "MetaMask unavailable");
       return;
     }
+    await requestAccount();
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const contract = new ethers.Contract(
       process.env.NEXT_PUBLIC_JOBBOARD_ADDRESS,
@@ -62,6 +66,7 @@ export default function Home() {
         setIsAdmin(true);
       }
     } catch (error) {
+      console.log("HERE IS BIG ERROR IN ADMIN");
       console.log(error);
     }
   }
@@ -79,10 +84,12 @@ export default function Home() {
       provider
     );
     try {
+      await requestAccount();
       const data = await contract.allJobs();
       console.log("ALL JOBS", data);
       setAllJobsState(data);
     } catch (error) {
+      console.log("HERE IS BIG ERROR IN ALL JOBS");
       console.log(error);
     }
     setLoading(false);

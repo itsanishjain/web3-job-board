@@ -21,7 +21,7 @@ contract JobBoard is Ownable {
     }
 
     Job[] public jobs;
-    mapping (address=>address[]) public applicants;
+    mapping(address => address[]) public applicants;
 
     // add a job
     // default parameter is not there in Solidity
@@ -33,7 +33,7 @@ contract JobBoard is Ownable {
         string memory _location,
         string memory _companyWebsiteUrl
     ) public payable {
-        require(msg.value == 5 * 10**15 );
+        require(msg.value == 5 * 10**15);
         Job memory job = Job({
             jobId: JOB_ID,
             companyName: _companyName,
@@ -48,26 +48,24 @@ contract JobBoard is Ownable {
         JOB_ID++;
     }
 
-    // return all jobs 
-    function allJobs() public view returns(Job[] memory) {
+    // return all jobs
+    function allJobs() public view returns (Job[] memory) {
         return jobs;
     }
 
     // delete a job
     function deleteJob(uint256 _jobId) public {
-        require(
-            msg.sender == jobs[_jobId].employer || msg.sender == ADMIN
-        );
+        require(msg.sender == jobs[_jobId].employer || msg.sender == ADMIN);
         // delete jobs[_jobId]; // this creates the gap means data at this location is null but
         // index still returns null
 
         // Alternative way which shifts the items from array
-        if(_jobId >= jobs.length) return;
-        for (uint i = _jobId; i<jobs.length-1; i++){
-            jobs[i] = jobs[i+1];
+        if (_jobId >= jobs.length) return;
+        for (uint256 i = _jobId; i < jobs.length - 1; i++) {
+            jobs[i] = jobs[i + 1];
             jobs[i].jobId = i;
         }
-        delete jobs[jobs.length-1];
+        delete jobs[jobs.length - 1];
         JOB_ID--;
     }
 
@@ -79,15 +77,15 @@ contract JobBoard is Ownable {
     }
 
     // return this
-    function admin() public view returns(address) {
+    function admin() public view returns (address) {
         return ADMIN;
     }
 
-    function withdraw(address payable _adminAddress) public onlyOwner{
+    function withdraw(address payable _adminAddress) public onlyOwner {
         _adminAddress.transfer(address(this).balance);
     }
 
-    function totalJobs() public view returns(uint256){
+    function totalJobs() public view returns (uint256) {
         return jobs.length;
     }
 }

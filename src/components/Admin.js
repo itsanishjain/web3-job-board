@@ -51,10 +51,6 @@ export default function Admin() {
   const deleteAJob = async (id) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-
-    const sad = await signer.getAddress();
-    console.log("sad?????????????????", sad);
-
     const contract = new ethers.Contract(
       process.env.NEXT_PUBLIC_JOBBOARD_ADDRESS,
       JobBoardABI,
