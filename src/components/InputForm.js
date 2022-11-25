@@ -97,6 +97,7 @@ export default function InputForm() {
     await transaction.wait();
     setLoading(false);
     console.log("JOB CREATED SUCCESSFULLY");
+    alert("JOB CREATED SUCCESSFULLY");
   }
 
   return (
